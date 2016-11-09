@@ -1,8 +1,13 @@
 package com.github.chabanenk0.Shapes;
 
+import com.github.chabanenk0.Exception.WrongInputDataException;
 import org.junit.Test;
 
 import java.awt.geom.Point2D;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 import static org.junit.Assert.*;
 
@@ -83,5 +88,22 @@ public class CircleTest {
         double correctArea = Math.PI * radius * radius;
         assertEquals(correctArea, area, this.delta);
     }
+
+    @Test
+    public void inputFromStreamTest() throws IOException, WrongInputDataException {
+        String inputFile = Circle.class.getResource("/Circle.txt").getFile();
+        FileInputStream fileInputStream = new FileInputStream(inputFile);
+        double radius = 10;
+        double x = 10.0;
+        double y = 15.0;
+        Circle circle = new Circle();
+        circle.inputFromStream(fileInputStream, false, System.out);
+        assertNotNull(circle);
+        assertNotNull(circle.getCenter());
+        assertEquals(x, circle.getCenter().getX(), this.delta);
+        assertEquals(y, circle.getCenter().getY(), this.delta);
+        assertEquals(radius, circle.getRadius(), this.delta);
+    }
+
 
 }
