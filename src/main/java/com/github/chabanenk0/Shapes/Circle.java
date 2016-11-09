@@ -88,4 +88,14 @@ public class Circle extends AbstractShape implements InputableInterface
         double y = this.readDouble(bufferedReader);
         this.setCenter(new Point2D.Double(x, y));
     }
+
+    public String toString() {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append("Circle(");
+        Point2D.Double center = this.getCenter();
+        stringBuffer.append("Center:(" + center.getX() + ", " + center.getY() + "), ");
+        stringBuffer.append("radius=" + this.getRadius() + ")");
+
+        return stringBuffer.toString();
+    }
 }
