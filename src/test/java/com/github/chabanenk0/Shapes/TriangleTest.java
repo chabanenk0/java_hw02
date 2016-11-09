@@ -57,5 +57,4 @@ public class TriangleTest {
         double correctArea = Math.sqrt(halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c));
         assertEquals(correctArea, area, this.delta);
     }
-
 }
