@@ -85,5 +85,4 @@ public class Rectangle extends AbstractShape implements InputableInterface {
     public String toString() {
         return "Rectangle(" + this.a + ", " + this.b + ")";
     }
-
 }

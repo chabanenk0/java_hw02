@@ -1,10 +1,7 @@
 package com.github.chabanenk0;
 
 import com.github.chabanenk0.Exception.WrongInputDataException;
-import com.github.chabanenk0.Shapes.AbstractShape;
-import com.github.chabanenk0.Shapes.Circle;
-import com.github.chabanenk0.Shapes.Rectangle;
-import com.github.chabanenk0.Shapes.Triangle;
+import com.github.chabanenk0.Shapes.*;
 
 import java.io.IOException;
 
@@ -53,6 +50,20 @@ public class Main {
         return rectangle;
     }
 
+    private static Square inputSquareFromConsole()
+    {
+        Square square = new Square();
+        try {
+            square.inputFromStream(System.in, true, System.out);
+        } catch (WrongInputDataException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return square;
+    }
+
+
     public static void main(String[] args) {
         System.out.println("Select the shape code to create:");
         try {
@@ -77,10 +88,16 @@ public class Main {
                     System.out.println("Perimeter:" + rectangle.calculatePerimeter());
                     System.out.println("Diagonal triangle:" + rectangle.getDiagonalTriangle().toString());
                     break;
+                case SQUARE:
+                    Square square = inputSquareFromConsole();
+                    System.out.println("Square:" + square.toString());
+                    System.out.println("Area:" + square.calculateArea());
+                    System.out.println("Perimeter:" + square.calculatePerimeter());
+                    System.out.println("Diagonal triangle:" + square.getDiagonalTriangle().toString());
+                    break;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
