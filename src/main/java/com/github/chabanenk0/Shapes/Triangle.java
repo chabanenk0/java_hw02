@@ -38,12 +38,13 @@ public class Triangle extends AbstractShape implements InputableInterface {
             throw new WrongInputDataException("Vertex length cannot be negative");
         }
 
-        double oldA = this.a;
+//        double oldA = this.a;
         this.a = a;
-        if (!validate()) {
-            this.a = oldA;
-            throw new WrongInputDataException("Triangle is not valid");
-        }
+//        if (!validate()) {
+//            this.a = oldA;
+//            throw new WrongInputDataException("Triangle is not valid");
+//        }
+        // @todo is validation needed when changing one variable?
     }
 
     public double getB() {
@@ -55,12 +56,13 @@ public class Triangle extends AbstractShape implements InputableInterface {
             throw new WrongInputDataException("Vertex length cannot be negative");
         }
 
-        double oldB = this.b;
+//        double oldB = this.b;
         this.b = b;
-        if (!validate()) {
-            this.b = oldB;
-            throw new WrongInputDataException("Triangle is not valid");
-        }
+//        if (!validate()) {
+//            this.b = oldB;
+//            throw new WrongInputDataException("Triangle is not valid");
+//        }
+        // @todo is validation needed when changing one variable?
     }
 
     public double getC() {
@@ -72,12 +74,13 @@ public class Triangle extends AbstractShape implements InputableInterface {
             throw new WrongInputDataException("Vertex length cannot be negative");
         }
 
-        double oldC = this.c;
+//        double oldC = this.c;
         this.c = c;
-        if (!validate()) {
-            this.c = oldC;
-            throw new WrongInputDataException("Triangle is not valid");
-        }
+//        if (!validate()) {
+//            this.c = oldC;
+//            throw new WrongInputDataException("Triangle is not valid");
+//        }
+        // @todo is validation needed when changing one variable?
     }
 
     public double calculateArea() {
@@ -94,13 +97,13 @@ public class Triangle extends AbstractShape implements InputableInterface {
     {
         // don't validate empty object
         if (0 == this.a) {
-            return  true;
+            return true;
         }
         if (0 == this.b) {
-            return  true;
+            return true;
         }
         if (0 == this.c) {
-            return  true;
+            return true;
         }
 
         if (!validatePartial(this.a, this.b, this.c)) {
@@ -145,5 +148,9 @@ public class Triangle extends AbstractShape implements InputableInterface {
         }
         double c = this.readDouble(bufferedReader);
         this.setC(c);
+    }
+
+    public String toString() {
+        return "Triangle(" + this.a + ", " + this.b + ", " +  this.c + ")";
     }
 }

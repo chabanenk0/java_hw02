@@ -77,4 +77,13 @@ public class Rectangle extends AbstractShape implements InputableInterface {
         double b = this.readDouble(bufferedReader);
         this.setB(b);
     }
+
+    public Triangle getDiagonalTriangle() throws WrongInputDataException {
+        return new Triangle(a, b, Math.sqrt(a * a + b * b));
+    }
+
+    public String toString() {
+        return "Rectangle(" + this.a + ", " + this.b + ")";
+    }
+
 }

@@ -75,6 +75,7 @@ public class Main {
                     System.out.println("Rectangle:" + rectangle.toString());
                     System.out.println("Area:" + rectangle.calculateArea());
                     System.out.println("Perimeter:" + rectangle.calculatePerimeter());
+                    System.out.println("Diagonal triangle:" + rectangle.getDiagonalTriangle().toString());
                     break;
             }
         } catch (Exception e) {
